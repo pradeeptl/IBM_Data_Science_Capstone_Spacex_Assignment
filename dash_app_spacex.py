@@ -51,11 +51,11 @@ def select(inputt):
     if inputt == 'ALL':
         new_df = spacex_df.groupby(['Launch Site'])["class"].sum().to_frame()
         new_df = new_df.reset_index()
-        fig = px.pie(new_df, values='class', names='Launch Site', title='Total Success Launches by Site')
+        fig = px.pie(new_df, values='class', names='Launch Site', title='Total Successfull Launches by Site')
     else:
         new_df = spacex_df[spacex_df["Launch Site"] == inputt]["class"].value_counts().to_frame()
         new_df["name"] = ["Failure", "Success"]
-        fig = px.pie(new_df, values='class', names='name', title='Total Success Launches for ' + inputt)
+        fig = px.pie(new_df, values='class', names='name', title='Total Successfull Launches for ' + inputt)
     return fig
 
 # TASK 4:
